@@ -18,14 +18,6 @@ namespace AirlineLibrary {
                 _occupancyRatePerRoute.Add(flight.Route, new List<double>() { CalculateOccupancyRate(flight) });
             }
         }
-        private double CalculateOccupancyRate(Flight flight) {
-            return Convert.ToDouble(flight.SoldSeats) / flight.Airplane.Seats;
-        }
-        public void ShowAverageOccupancyRate() {
-            foreach (Route r in _occupancyRatePerRoute.Keys) {
-                Console.WriteLine($"Route: {_occupancyRatePerRoute[r].Count} flights from {r.DepartureAirport} to {r.ArrivalAirport} with an average occupancy rate of {CalculateAverageOccupancyRate(_occupancyRatePerRoute[r])}");
-            }
-        }
 
         private double CalculateAverageOccupancyRate(List<double> list) {
             double total = 0.0;
@@ -33,6 +25,17 @@ namespace AirlineLibrary {
                 total += d;
             }
             return total / list.Count;
+        } // calculate the average occupancy rate for each flight
+        private double CalculateOccupancyRate(Flight flight) {
+            return Convert.ToDouble(flight.SoldSeats) / flight.Airplane.Seats;
+        } // used by AddNewOccupancyRate => to calculate the occupancy rate of a new flight
+        public void ShowAverageOccupancyRate() {
+            // debug line
+            Console.WriteLine("\n====ShowAverageOccupancyRate====");
+
+            foreach (Route r in _occupancyRatePerRoute.Keys) {
+                Console.WriteLine($"{_occupancyRatePerRoute[r].Count} flights from {r.DepartureAirport} to {r.ArrivalAirport} with an average occupancy rate of {CalculateAverageOccupancyRate(_occupancyRatePerRoute[r])}");
+            }
         }
     }
 }

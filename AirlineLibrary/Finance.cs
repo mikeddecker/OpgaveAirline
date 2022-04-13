@@ -19,6 +19,7 @@ namespace AirlineLibrary {
             AddCateringCost(cateringCost, args.cateringOrder.Date.Year, args.cateringOrder.Date.Month, args.cateringOrder.Airport);
         }
         public void ShowCateringRapport() {
+            Console.WriteLine("\n====ShowCateringRapport====");
             foreach (int year in cateringCostsOnYearMonthAirport.Keys) {
                 foreach (int month in cateringCostsOnYearMonthAirport[year].Keys) {
                     foreach (string airport in cateringCostsOnYearMonthAirport[year][month].Keys) {
@@ -28,6 +29,7 @@ namespace AirlineLibrary {
             }
         }
         public void ShowFuelCost(int year) {
+            Console.WriteLine($"\n====ShowFuelCost in {year}====");
             Console.WriteLine($"Year {year} - fuelcost : {_fuelCostEachYear[year]} euro");
         }
         private void AddCateringCost(double cost, int year, int month, string airport) {
