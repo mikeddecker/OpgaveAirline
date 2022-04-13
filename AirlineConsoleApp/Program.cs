@@ -31,6 +31,7 @@ namespace AirlineConsoleApp {
             f.ShowFuelCost(2021);
             c.ShowOrders();
             s.ShowAverageOccupancyRate();
+            s.ShowAverageOccupancyRate(0.80);
 
 
         }

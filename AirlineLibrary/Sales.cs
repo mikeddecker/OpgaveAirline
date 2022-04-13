@@ -30,11 +30,18 @@ namespace AirlineLibrary {
             return Convert.ToDouble(flight.SoldSeats) / flight.Airplane.Seats;
         } // used by AddNewOccupancyRate => to calculate the occupancy rate of a new flight
         public void ShowAverageOccupancyRate() {
-            // debug line
+            ShowAverageOccupancyRate(1); // 1 is the maximum and the standard value
+        }
+        public void ShowAverageOccupancyRate(double maxValue) {
             Console.WriteLine("\n====ShowAverageOccupancyRate====");
 
-            foreach (Route r in _occupancyRatePerRoute.Keys) {
-                Console.WriteLine($"{_occupancyRatePerRoute[r].Count} flights from {r.DepartureAirport} to {r.ArrivalAirport} with an average occupancy rate of {CalculateAverageOccupancyRate(_occupancyRatePerRoute[r])}");
+            if (maxValue > 1 || maxValue <= 0) {
+                Console.WriteLine("maximum value must be smaller than 1 and bigger than 0");
+            } else {
+                foreach (Route r in _occupancyRatePerRoute.Keys) {
+                    double average = CalculateAverageOccupancyRate(_occupancyRatePerRoute[r]);
+                    if (average <= maxValue) { Console.WriteLine($"{_occupancyRatePerRoute[r].Count} flights from {r.DepartureAirport} to {r.ArrivalAirport} with an average occupancy rate of {average}"); }
+                }
             }
         }
     }
