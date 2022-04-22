@@ -14,7 +14,7 @@ namespace AirlineLibrary {
             AddFuelCosts(args.latestNewFlight.Date.Year, fuelPrice);
         }
         public void OnNewCateringOrder(object source, CateringEventArgs args) {
-            Console.WriteLine("Finance - OnNewCateringOrder");
+            Console.WriteLine("-- Finance - OnNewCateringOrder");
             double cateringCost = CalculateCateringCost(args.cateringOrder);
             AddCateringCost(cateringCost, args.cateringOrder.Date.Year, args.cateringOrder.Date.Month, args.cateringOrder.Airport);
         }

@@ -15,12 +15,12 @@ namespace AirlineLibrary {
         private Dictionary<int, Flight> Flights { get; init; }
 
         public void AddNewFlight(Flight flight) {
-            Console.WriteLine("Adding new flight");
+            Console.WriteLine("\nAdding new flight - host event");
             Flights.Add(flight.Number, flight);
-            OnNewFlight(flight);
+            NewFlight(flight);
         }
         public event EventHandler<FlightEventArgs> NewlyRegisteredFlight;
-        protected virtual void OnNewFlight(Flight flight) {
+        protected virtual void NewFlight(Flight flight) {
             NewlyRegisteredFlight?.Invoke(this, new FlightEventArgs() { latestNewFlight = flight });
         }
             

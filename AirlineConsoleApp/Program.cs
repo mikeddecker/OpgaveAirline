@@ -11,6 +11,7 @@ namespace AirlineConsoleApp {
             Finance f = new Finance();
             Sales s = new Sales();
 
+            //Inschrijven op events.
             a.NewlyRegisteredFlight += c.OnNewFlight;
             a.NewlyRegisteredFlight += f.OnNewFlight;
             a.NewlyRegisteredFlight += s.OnNewFlight;
@@ -22,9 +23,9 @@ namespace AirlineConsoleApp {
             a.AddNewFlight(f1);
             Flight f2 = new Flight(1002, new DateTime(2021, 03, 05), new Route("BRU", "ARN", 1290), 108, a2);
             a.AddNewFlight(f2);
-            Flight f3 = new Flight(2222, new DateTime(2021, 04, 05), new Route("BRU", "TXL", 635), 84, a1 );
+            Flight f3 = new Flight(2222, new DateTime(2021, 04, 05), new Route("BRU", "TXL", 635), 60, a1 );
             a.AddNewFlight(f3);
-            Flight f4 = new Flight(2223, new DateTime(2021, 03, 05), new Route("ARN", "TXL", 635), 84, a1 );
+            Flight f4 = new Flight(2223, new DateTime(2021, 03, 05), new Route("ARN", "TXL", 635), 100, a1 );
             a.AddNewFlight(f4);
 
             f.ShowCateringRapport();

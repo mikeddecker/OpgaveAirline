@@ -33,7 +33,7 @@ namespace AirlineLibrary {
             ShowAverageOccupancyRate(1); // 1 is the maximum and the standard value
         }
         public void ShowAverageOccupancyRate(double maxValue) {
-            Console.WriteLine("\n====ShowAverageOccupancyRate====");
+            Console.WriteLine($"\n====ShowAverageOccupancyRate kleiner dan {maxValue}====");
 
             if (maxValue > 1 || maxValue <= 0) {
                 Console.WriteLine("maximum value must be smaller than 1 and bigger than 0");
